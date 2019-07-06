@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeJsPlugin = require("optimize-js-plugin");
 
 module.exports = env => {
+    const PROD = "production";
+    const isProd = env === PROD;
+
     return {
         mode: env || "production",
         entry: "./src/index.js",
@@ -10,11 +13,20 @@ module.exports = env => {
             path: path.resolve(__dirname, "build"),
             filename: "app.bundle.js"
         },
+        devServer: {
+            contentBase: path.join(__dirname, "dist"),
+            compress: true,
+            port: 9000
+        },
         module: {
             rules: [
                 {
                     test: /\.js$/,
-                    loader: "babel-loader"
+                    loader: "babel-loader",
+                    exclude: /node_modules/,
+                    options: {
+                        plugins: isProd ? [] : ["react-hot-loader/babel"]
+                    }
                 },
                 {
                     test: /\.css$/,

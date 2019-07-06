@@ -1,3 +1,4 @@
+import { hot } from "react-hot-loader";
 import React from "react";
 import uuid from "uuid";
 import style from "./app.css";
@@ -49,4 +50,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default hot(module)(App);
