@@ -1,0 +1,26 @@
+.todo {
+    color: grey;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.todo_text {
+    margin-right: 20px;
+}
+
+.todo_remove {
+    color: rgb(21, 124, 21);
+    background-color: bisque;
+    border-radius: 50%;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    transition: 0.1s;
+}
+
+.todo_remove:hover {
+    color: rgb(23, 134, 23);
+    background-color: rgb(255, 214, 163);
+}
