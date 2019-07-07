@@ -4,36 +4,24 @@ import uuid from "uuid";
 import style from "./app.css";
 import Title from "../components/Title";
 import TodoList from "../components/TodoList";
+import TodoForm from "../components/TodoForm";
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [
-                {
-                    id: 1,
-                    text: "clean room"
-                },
-                {
-                    id: 2,
-                    text: "wash the dishes"
-                },
-                {
-                    id: 3,
-                    text: "feed my cat"
-                }
-            ]
+            data: []
         };
     }
 
-    addTodo(val) {
+    addTodo = val => {
         const todo = {
             text: val,
             id: uuid.v4()
         };
         const data = [...this.state.data, todo];
         this.setState({ data });
-    }
+    };
 
     removeTodo = id => {
         const remainder = this.state.data.filter(todo => todo.id !== id);
@@ -44,6 +32,7 @@ class App extends React.Component {
         return (
             <div className={style.todoApp}>
                 <Title tasksNumber={this.state.data.length} />
+                <TodoForm addTodo={this.addTodo} />
                 <TodoList removeTodo={this.removeTodo} todoList={this.state.data} />
             </div>
         );

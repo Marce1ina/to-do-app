@@ -1,0 +1,31 @@
+.todoForm {
+    margin: 10px;
+}
+
+.todoForm_input {
+    border: 2px solid grey;
+    outline: none;
+    border-radius: 5px;
+    margin-right: 20px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    padding: 0 5px;
+}
+
+.todoForm_button {
+    color: rgb(133, 59, 114);
+    background-color: bisque;
+    border-radius: 50%;
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    transition: 0.1s;
+}
+
+.todoForm_button:hover {
+    color: rgb(133, 34, 108);
+    background-color: rgb(255, 214, 163);
+}
